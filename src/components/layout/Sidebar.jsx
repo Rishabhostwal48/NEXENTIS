@@ -1,16 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { sidebarLinks } from "../../data/navconfig";
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
+  const [groups, setGroups] = useState(
+    sidebarLinks.map((g) => (g.collapsed ? false : true))
+  );
+  const location = useLocation();
+
+  function toggleGroup(index) {
+    setGroups((prev) => {
+      const newGroups = [...prev];
+      newGroups[index] = !newGroups[index];
+      return newGroups;
+    });
+  }
 
   return (
     <aside
-      className={`h-screen border-r bg-white transition-all duration-300  ${
-        collapsed ? "w-16" : "w-64"
-      }`}
+      className={`h-screen border-r bg-white transition-all duration-300 
+        ${collapsed ? "w-16" : "w-64"}`}
     >
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b">
@@ -20,39 +31,51 @@ export default function Sidebar() {
         </button>
       </div>
 
-      <nav className="p-4 space-y-6 text-sm">
-        {sidebarLinks.map((section) => (
-          <div key={section.section}>
+      {/* Nav Groups */}
+
+      <div className="p-4 space-y-6 text-sm">
+        {sidebarLinks.map((section, index) => (
+          <div key={section.group}>
+            {/* Group Header */}
             {!collapsed && (
-              <p className="mb-2 text-xs font-semibold text-gray-400 uppercase">
-                {section.section}
-              </p>
+              <button
+                onClick={() => toggleGroup(index)}
+                className="flex w-full items-center justify-between text-xs font-semibold text-gray-500 uppercase"
+              >
+                {section.group}
+                <ChevronDown
+                  className={`h-4 w- transition-transform ${
+                    groups[index] ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
             )}
 
-            <div className="space-y-1">
-              {section.items.map((item) => (
-                <SidebarItem
-                  key={item.path}
-                  to={item.path}
-                  label={item.label}
-                  collapsed={collapsed}
-                />
-              ))}
-            </div>
+            {/* Links */}
+            {groups[index] && (
+              <div className="mt-2 space-y-1">
+                {section.items.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`
+                      flex items-center gap-3 rounded px-3 py-2 text-sm hover:bg-gray-100
+                      ${
+                        location.pathname.startsWith(item.path)
+                          ? "bg-black text-white"
+                          : "text-gray-600"
+                      }
+                      `}
+                  >
+                    {item.icon && <item.icon size={18} className="shrink-0" />}
+                    {!collapsed && <span>{item.label}</span>}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         ))}
-      </nav>
+      </div>
     </aside>
-  );
-}
-
-function SidebarItem({ to, label, collapsed }) {
-  return (
-    <Link
-      to={to}
-      className="flex items-center gap-3 rounded px-3 py-2 hover:gray-100"
-    >
-      {!collapsed && <span>{label}</span>}
-    </Link>
   );
 }

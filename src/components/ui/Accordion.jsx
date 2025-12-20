@@ -25,28 +25,55 @@ export function Accordion({ items, multiple = false }) {
           : openIndex === index;
 
         return (
-          <div key={index}>
-            <button
-              onClick={() => toggle(index)}
-              className="flex w-full items-center justify-between px-4 py-3 text-left font-medium hover:bg-gray-50"
-            >
-              {item.title}
-              <ChevronDown
-                className={clsx(
-                  "h-4 w-4 transition-transform",
-                  isOpen && "rotate-180"
-                )}
-              />
-            </button>
-
-            {isOpen && (
-                <div className="px-4 pb-4 text-sm text-gray-600">
-                    {item.content}
-                </div>
-            )}
-          </div>
-        )
+          <AccordionItem
+            key={index}
+            title={item.title}
+            isOpen={isOpen}
+            onClick={() => toggle(index)}
+          >
+            {item.content}
+          </AccordionItem>
+        );
       })}
+    </div>
+  );
+}
+
+function AccordionItem({ title, isOpen, onClick, children }) {
+  const ref = useRef(null);
+  const [height, setHieght] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      setHieght(ref.current.scrollHeight);
+    } else {
+      setHieght(0);
+    }
+  }, [isOpen]);
+
+  return(
+    <div className="overflow-hidden">
+      <button
+       onClick={onClick}
+       className="flex w-full items-center justify-between px-4 py-3 font-medium hover:bg-gray-50"
+      >
+        {title}
+        <ChevronDown
+         className={clsx(
+          "h-4 w-4 transition-transform duration-300",
+          isOpen && "rotate-180"
+         )}
+        />
+      </button>
+
+      <div
+        style={{ height }}
+        className="transition-all duration-300 ease-in-out"
+      >
+        <div ref={ref} className="px-4 pb-4 text-sm text-gray-600">
+          {children}
+        </div>
+      </div>
     </div>
   )
 }

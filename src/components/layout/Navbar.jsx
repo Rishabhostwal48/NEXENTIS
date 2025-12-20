@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Icon, Menu, X } from "lucide-react";
 import { navLinks } from "../../data/navconfig";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="w-full border-b bg-white">
@@ -16,15 +17,21 @@ export default function Navbar() {
 
         {/* Dekstop Links */}
         <div className="hidden md:flex gap-6 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className="text-gray-600 hover:text-black"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname.startsWith(link.path);
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`flex items-center gap-2  ${
+                  isActive ? "font-semibold  text-black" : "text-gray-600"
+                }`}
+              >
+                <link.icon size={18} />
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Mobile Button */}
@@ -41,38 +48,29 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {/* <div
-        className={`md:hidden flex flex-col border-t px-6 py-4 space-y-3 transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <Link
-          to="/components"
-          className="hover:text-black text-gray-600 py-2 px-4 rounded-md hover:bg-gray-50 transition-colors"
+      {isOpen && (
+        <div
+          className={`md:hidden flex flex-col border-t px-6 py-4 space-y-3 transition-all duration-300 overflow-hidden ${
+            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
         >
-          Components
-        </Link>
-        <Link
-          to="/docs"
-          className="hover:text-black text-gray-600 py-2 px-4 rounded-md hover:bg-gray-50 transition-colors"
-        >
-          Docs
-        </Link>
-        <Link
-          to="https://github.com/Risabhostwal48"
-          className="hover:text-black text-gray-600 py-2 px-4 rounded-md hover:bg-gray-50 transition-colors"
-        >
-          Github
-        </Link>
-      </div> */}
-      {open && (
-        <div className="md:hidden border-t px-6 py-4 space-y-3">
-          {navLinks.map((link) => (
-            <Link key={link.path} to={link.path} className="block">
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname.startsWith(link.path);
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`flex items-center gap-2 p-3 pl-20 mb-2 mt-1 rounded ${
+                  isActive
+                    ? "font-bold bg-gray-100  text-black"
+                    : "text-gray-600"
+                }`}
+              >
+                <link.icon size={18} />
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>
