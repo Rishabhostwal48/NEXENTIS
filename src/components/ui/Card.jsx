@@ -1,7 +1,7 @@
 export function Card({ children,className = ""}){
     return(
         <div
-           className={`rounded-xl border bg-white shadow-sm p-5 ${className}`}
+           className={`rounded-xl border bg-white dark:bg-gray-800 dark:border-gray-700 shadow-sm p-5 ${className}`}
         >
             {children}
         </div>
@@ -10,7 +10,7 @@ export function Card({ children,className = ""}){
 
 export function CardTitle({ children,className = ""}){
     return(
-        <h2 className={`text-lg font-semibold mb-1 ${className}`}>
+        <h2 className={`text-sm text-gray-500 dark:text-gray-400 mb-3 ${className}`}>
             {children}
         </h2>
     )
@@ -18,7 +18,7 @@ export function CardTitle({ children,className = ""}){
 
 export function CardDescription({ children,className = ""}){
     return(
-        <p className={`text-sm text-gray-500 mb-3 ${className}`}>
+        <p className={`text-sm text-gray-500 dark:text-gray-400 mb-3 ${className}`}>
             {children}
         </p>
     )

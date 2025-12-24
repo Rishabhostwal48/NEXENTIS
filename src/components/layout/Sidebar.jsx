@@ -20,7 +20,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen border-r bg-white transition-all duration-300 
+      className={`h-screen border-r bg-white dark:bg-gray-800 dark:border-gray-700 transition-all duration-300 
         ${collapsed ? "w-16" : "w-64"}`}
     >
       {/* Header */}
@@ -59,15 +59,16 @@ export default function Sidebar() {
                     key={item.path}
                     to={item.path}
                     className={`
-                      flex items-center gap-3 rounded px-3 py-2 text-sm hover:bg-gray-100
+                      flex items-center gap-3 rounded px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700
                       ${
                         location.pathname.startsWith(item.path)
-                          ? "bg-black text-white"
-                          : "text-gray-600"
+                          ? "bg-black dark:bg-white text-white dark:text-black"
+                          : "text-gray-600 dark:text-gray-300"
                       }
                       `}
                   >
-                    {item.icon && <item.icon size={18} className="shrink-0" />}
+                    {item.icon && <item.icon size={18} className
+                    ="shrink-0" />}
                     {!collapsed && <span>{item.label}</span>}
                   </Link>
                 ))}

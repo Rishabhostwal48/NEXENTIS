@@ -1,6 +1,6 @@
-import ComponentDoc from "../../components/docs/ComponentDoc"
-import { Card, CardTitle, CardDescription, CardFooter, CardMedia } from "../../components/ui/Card"
-import Button from "../../components/ui/Button"
+import ComponentDoc from "./ComponentDoc"
+import { Card, CardTitle, CardDescription, CardFooter, CardMedia } from "../ui/Card"
+import Button from "../ui/Button"
 
 const codeExample = `
 <Card>

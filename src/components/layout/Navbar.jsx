@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Icon, Menu, X } from "lucide-react";
+import { Icon, Menu, SearchIcon, SendIcon, X } from "lucide-react";
 import { navLinks } from "../../data/navconfig";
+import { ThemeContext } from "../../context/ThemeContext";
+import { Sun, Moon } from "lucide-react";
+import Search from "../../pages/Search";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <nav className="w-full border-b bg-white">
@@ -46,6 +50,15 @@ export default function Navbar() {
             <Menu className="w-6 h-6 bg-gray-100" />
           )}
         </button>
+        <button
+          onClick={toggleTheme}
+          className="ml-4 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
+          {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+        </button>
+        <Link to="/search" className="ml-4 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+           <SearchIcon size={18}/>
+        </Link>
       </div>
 
       {isOpen && (
