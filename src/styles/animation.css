@@ -1,0 +1,13 @@
+:root {
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 0.2s;
+  --normal:0.3s;
+}
+
+.animate-slide-in{
+    animation: slide-in var(--fast)  var(--ease);
+}
+
+.animate-modal {
+    animation: modal var(--fast) var(--ease);
+}

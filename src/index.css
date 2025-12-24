@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "/src/styles/animation.css";
 
 @keyframes slide-in {
   from {
@@ -12,11 +13,6 @@
     transform: translateX(0);
   }
 }
-
-.animate-slide-in{
-    animation: slide-in 0.25s ease-out;
-}
-
 
 
 @keyframes modal {
@@ -30,6 +26,3 @@
     }
 }
 
-.animate-modal {
-    animation:  modal 0.2s ease-out;
-}

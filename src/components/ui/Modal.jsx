@@ -31,6 +31,8 @@ export default function Modal({ open, onClose, title, children, size = "md" }) {
       />
       {/* Modal */}
       <div
+        role="dialog"
+        aria-modal="true"
         className={clsx(
           "relative z-10 w-full rounded-xl bg-white dark:bg-gray-800 shadow-lg animate-modal",
           size === "sm" && "max-w-sm",

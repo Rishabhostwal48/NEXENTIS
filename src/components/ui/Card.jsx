@@ -1,10 +1,12 @@
+import Surface from "./Surface"
+
 export function Card({ children,className = ""}){
     return(
-        <div
-           className={`rounded-xl border bg-white dark:bg-gray-800 dark:border-gray-700 shadow-sm p-5 ${className}`}
+        <Surface
+           className={`shadow-sm p-5 ${className}`}
         >
             {children}
-        </div>
+        </Surface>
     )
 }
 

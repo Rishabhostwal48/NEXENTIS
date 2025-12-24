@@ -9,6 +9,8 @@ export default function Button({
 }) {
   return (
     <button
+      type="button"
+      aria-label={typeof children === "string" ? children : "button"}
       className={clsx(
         "inline-flex items-centerm justify-center rounded-md font-medium  transition focus:outline:none focus:ring-2 focus:ring-offset-2",
 
@@ -37,5 +39,5 @@ export default function Button({
     >
       {children}
     </button>
-  )
+  );
 }

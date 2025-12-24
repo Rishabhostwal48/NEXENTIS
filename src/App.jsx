@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Components from "./pages/Components";
+import Components from "./pages/ComponentsIndex";
 import ButtonDoc from "./components/docs/ButtonDocs";
 import CardsDoc from "./components/docs/CardDocs";
 import Navbar from "./components/layout/navbar";
@@ -11,6 +11,7 @@ import Favorites from "./pages/Favorites";
 import ToastDoc from "./components/docs/ToastDoc";
 import ModalDoc from "./components/docs/ModalDoc";
 import TestModal from "./pages/testpage";
+import ErrorBoundary from "./components/system/ErrorBoundary";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/search" element={<Search />} />
         <Route path="/test" element={<TestModal />} />
+        <Route path="/docs/:name" element={ <ErrorBoundary><ComponentPreview/></ErrorBoundary>}/>
         <Route path="/docs/buttons" element={<ButtonDoc />} />
         <Route path="/docs/cards" element={<CardsDoc />} />
         <Route path="/docs/hero" element={<HeroDoc />} />

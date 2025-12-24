@@ -28,6 +28,7 @@ export const sidebarLinks = [
         {label:"Cards",path: "/docs/cards", icon : GalleryVerticalEnd },
         {label : "Hero", path:"/docs/hero", icon : Monitor },
         {label: "Badge" , path :"/docs/badges" , icon : Tag},
+        {label: "Modal" , path :"/docs/modal" ,  },
     ],
   },
   {

@@ -51,6 +51,8 @@ function Toast({ message, type }) {
 
   return (
     <div
+        role="status"
+        aria-live="polite"
       className={`px-4 py-3 rounded-md text-white shadow-lg animate-slide-in ${styles[type]}`}
     >
         {message}
