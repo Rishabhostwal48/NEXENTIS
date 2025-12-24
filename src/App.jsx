@@ -12,6 +12,7 @@ import ToastDoc from "./components/docs/ToastDoc";
 import ModalDoc from "./components/docs/ModalDoc";
 import TestModal from "./pages/testpage";
 import ErrorBoundary from "./components/system/ErrorBoundary";
+import ProtectedRoute from "./components/system/ProtectedRote";
 
 export default function App() {
   return (
@@ -20,9 +21,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/components" element={<Components />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
         <Route path="/search" element={<Search />} />
         <Route path="/test" element={<TestModal />} />
+        <Route path="/login" element={<Login />}/>
         <Route path="/docs/:name" element={ <ErrorBoundary><ComponentPreview/></ErrorBoundary>}/>
         <Route path="/docs/buttons" element={<ButtonDoc />} />
         <Route path="/docs/cards" element={<CardsDoc />} />

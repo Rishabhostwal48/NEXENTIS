@@ -1,14 +1,17 @@
 import { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Icon, Menu, SearchIcon, SendIcon, X } from "lucide-react";
+import {  Menu, SearchIcon,  X } from "lucide-react";
 import { navLinks } from "../../data/navconfig";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
-import Search from "../../pages/Search";
+import { Authcontext } from "../../context/AuthContext";
+import Button from "../ui/Button";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const {user, logout} = useContext(Authcontext)
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
@@ -59,6 +62,15 @@ export default function Navbar() {
         <Link to="/search" className="ml-4 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
            <SearchIcon size={18}/>
         </Link>
+        {user ? (
+          <Button size="sm" variant="outline" onClick={logout}>
+            Logout
+          </Button>
+          ):(
+            <Link to="/login">
+              <Button size="sm">Loginn</Button>
+            </Link>
+        )}
       </div>
 
       {isOpen && (

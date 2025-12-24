@@ -1,12 +1,16 @@
-import { createContext,useEffect,useState } from "react";
+import { createContext,useContext,useEffect,useState } from "react";
+import { Authcontext } from "./AuthContext";
 
 export const FavoritesContext = createContext()
 
 export function FavoritesProvider({children}) {
     const [favorites ,setFavorites] =useState([])
+    const {user} = useContext(Authcontext)
+    const key = user ?`favorites_${user.email}`:"favorites_guest"
+    const stored = localStorage.getItem(key)
 
     useEffect(() =>{
-        localStorage.setItem("favorites",JSON.stringify(favorites))
+        localStorage.setItem(key,JSON.stringify(favorites))
     },[favorites])
 
     function toggleFavorite(item){
