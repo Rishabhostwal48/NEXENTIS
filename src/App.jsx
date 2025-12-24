@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Components from "./pages/Components"
-import ComponentPreview from "./pages/ComponentPreview"
 import ButtonDoc from "./components/docs/ButtonDocs"; 
 import CardsDoc from "./components/docs/CardDocs";
 import Navbar from "./components/layout/navbar";
@@ -9,6 +8,7 @@ import HeroDoc from "./components/docs/HeroDoc";
 import Search from "./pages/Search";
 import BadgeDoc from "./components/docs/BadgeDoc";
 import Favorites from "./pages/Favorites";
+import ToastDoc from "./components/docs/ToastDoc";
 
 export default function App() {
   return (
@@ -17,13 +17,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/components" element={<Components />} />
-        <Route path="/components/:name" element={<ComponentPreview />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/docs/buttons" element={<ButtonDoc />} />
         <Route path="/docs/cards" element={<CardsDoc />} />
         <Route path="/docs/hero" element={<HeroDoc />} />
-        <Route path="/search" element={<Search />} />
         <Route path="/docs/badges" element={<BadgeDoc />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/docs/toast" element={<ToastDoc />} />
       </Routes>
     </div>
   )

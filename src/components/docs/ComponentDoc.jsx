@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { FavoritesContext } from "../../context/FavoritesContext";
 import { Star } from "lucide-react";
+import { useToast } from "../../context/ToastContext";
 
 export default function ComponentDoc({ title, description, code, children }) {
   const [copied, setCopied] = useState(false);
@@ -9,10 +10,9 @@ export default function ComponentDoc({ title, description, code, children }) {
   const item = { title, path: window.location.pathname };
   const active = isFavorite(item.path);
 
+  const {toast}=useToast()
   function copyCode() {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    toast.success("Code Copied!")
   }
 
   return (
