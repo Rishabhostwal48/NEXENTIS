@@ -13,6 +13,8 @@ import ModalDoc from "./components/docs/ModalDoc";
 import TestModal from "./pages/testpage";
 import ErrorBoundary from "./components/system/ErrorBoundary";
 import ProtectedRoute from "./components/system/ProtectedRote";
+import Login from "./pages/Login";
+import PricingDoc from "./components/docs/PricingDoc";
 
 export default function App() {
   return (
@@ -25,13 +27,14 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/test" element={<TestModal />} />
         <Route path="/login" element={<Login />}/>
-        <Route path="/docs/:name" element={ <ErrorBoundary><ComponentPreview/></ErrorBoundary>}/>
+        {/* <Route path="/docs/:name" element={ <ErrorBoundary><ComponentPreview/></ErrorBoundary>}/> */}
         <Route path="/docs/buttons" element={<ButtonDoc />} />
         <Route path="/docs/cards" element={<CardsDoc />} />
         <Route path="/docs/hero" element={<HeroDoc />} />
         <Route path="/docs/badges" element={<BadgeDoc />} />
         <Route path="/docs/toast" element={<ToastDoc />} />
         <Route path="/docs/modal" element={<ModalDoc />} />
+        <Route path="/docs/pricing" element={<PricingDoc />} />
       </Routes>
     </div>
   );

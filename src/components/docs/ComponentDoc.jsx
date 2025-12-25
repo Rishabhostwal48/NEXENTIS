@@ -26,15 +26,17 @@ export default function ComponentDoc({
   }
 
   return (
+    <div className="m-5 border-collapse">
+        
     <div className="space-y-6">
       <div>
-        <p className="text-xs uppercase text-gray-400">{category}</p>
-        <div className="flex items-center gap-3">
-          <h1 className="text-2xl font-bold">{title}</h1>
+        <p className="text-xs uppercase text-gray-500 mb-6">{category}</p>
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold pb-1 ">{title}</h1>
 
           <button
             onClick={() => toggleFavorite({ title, path })}
-            className="ml-3 inline-flex items-center gap-1 text-sm"
+            
           >
             <Star
               size={18}
@@ -43,7 +45,7 @@ export default function ComponentDoc({
           </button>
         </div>
 
-        <p className="text-gray-500">{description}</p>
+        <p className="text-gray-600 dark:text-gray-500">{description}</p>
       </div>
 
       <div className="rounded-xl border p-6 bg-white shadow-sm">{children}</div>
@@ -51,15 +53,16 @@ export default function ComponentDoc({
       <div className="relative">
         <button
           onClick={copyCode}
-          className=" sticky top-2 float-right rounded bg-gray-200 px-2 py-1 text-xs"
+          className=" absolute top-2 right-2 rounded bg-gray-300 dark:bg-gray-600 px-2 py-1 text-xs"
         >
           {copied ? "Copied!" : "Copy"}
         </button>
 
-        <pre className="max-h-96 overflow-auto rounded bg-gray-900 p-4 text-sm text-white">
+        <pre className="max-h-96 overflow-auto rounded bg-gray-950 p-4 text-sm text-white">
           <code>{code}</code>
         </pre>
       </div>
+    </div>
     </div>
   );
 }

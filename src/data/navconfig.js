@@ -1,4 +1,4 @@
-import { Home, SquareGanttChart, Layers, GalleryVerticalEnd, Github, BookOpenText, Book, Monitor, Tag, Star } from "lucide-react";
+import { Home, SquareGanttChart, Layers, GalleryVerticalEnd, Github, BookOpenText, Book, Monitor, Tag, Star, CreditCard } from "lucide-react";
 
 
 export const navLinks = [
@@ -26,7 +26,6 @@ export const sidebarLinks = [
         {label:"Buttons", path:"/docs/buttons" , icon : SquareGanttChart},
         {label:"Accordion", path:"/docs/accodion",icon : Layers},
         {label:"Cards",path: "/docs/cards", icon : GalleryVerticalEnd },
-        {label : "Hero", path:"/docs/hero", icon : Monitor },
         {label: "Badge" , path :"/docs/badges" , icon : Tag},
         {label: "Modal" , path :"/docs/modal" ,  },
     ],
@@ -35,8 +34,8 @@ export const sidebarLinks = [
     group: "Blocks",
     collapsed: true,
     items: [
-      { label:"Hero", path:"/blocks/hero"},
-      { label: "Pricing", path: "/blocks/pricing"},
+      { label:"Hero", path:"/docs/hero", icon:Monitor},
+      { label: "Pricing", path: "/docs/pricing", icon:CreditCard},
     ],
   },
 ];

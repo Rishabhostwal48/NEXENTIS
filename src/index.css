@@ -1,7 +1,7 @@
+@import "/src/styles/animation.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "/src/styles/animation.css";
 
 @keyframes slide-in {
   from {

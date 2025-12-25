@@ -12,7 +12,7 @@ export default function Button({
       type="button"
       aria-label={typeof children === "string" ? children : "button"}
       className={clsx(
-        "inline-flex items-centerm justify-center rounded-md font-medium  transition focus:outline:none focus:ring-2 focus:ring-offset-2",
+        "inline-flex items-center justify-center rounded-md font-medium  transition focus:outline:none focus:ring-2 focus:ring-offset-2",
 
         //Variants
         {
