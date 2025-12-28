@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Components from "./pages/ComponentsIndex";
 import ButtonDoc from "./components/docs/ButtonDocs";
 import CardsDoc from "./components/docs/CardDocs";
-import Navbar from "./components/layout/navbar";
+import Navbar from "./components/layout/Navbar";
 import HeroDoc from "./components/docs/HeroDoc";
 import Search from "./pages/Search";
 import BadgeDoc from "./components/docs/BadgeDoc";
