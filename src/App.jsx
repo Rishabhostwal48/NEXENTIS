@@ -29,12 +29,12 @@ export default function App() {
         <Route path="/components" element={<Components />} />
         <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
         <Route path="/search" element={<Search />} />
-        <Route path="/test" element={<TestModal />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/docs/buttons" element={<ButtonDoc />} />
         <Route path="/docs/cards" element={<CardsDoc />} />
         <Route path="/docs/hero" element={<HeroDoc />} />
         <Route path="/docs/badges" element={<BadgeDoc />} />
+        <Route path="/docs/toast" element={<ToastDoc />} />
         <Route path="/docs/modal" element={<ModalDoc />} />
         <Route path="/docs/pricing" element={<PricingDoc />} />
         <Route path="/docs/textured-background" element={<TexturedBackgroundDoc />} />
