@@ -3,7 +3,7 @@ import Button from "../ui/Button";
 import Badge from "../ui/Badge";
 import { useContext } from "react";
 import { Authcontext } from "../../context/AuthContext";
-import { startCheckout } from "../../utils/Checkout.js";
+import { startCheckout } from "../../utils/checkout";
 
 
 export default function Pricing(){
