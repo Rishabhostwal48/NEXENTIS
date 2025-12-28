@@ -16,15 +16,17 @@ export default function Badge({
             size === "md" && "px-3 py-1 text-sm",
             //variants
             variant === "gray" &&
-                "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200",
+                "bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200",
+            variant === "secondary" &&
+                "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200",
             variant === "primary" &&
-               "bg-black text-white dark:bg-white dark:text-black",
+               "bg-neutral-900 text-white dark:bg-neutral-50 dark:text-neutral-900",
             variant === "success" &&
-                "bg-green-800 text-white ",
+                "bg-green-600 text-white dark:bg-green-700",
             variant === "warning" &&
-                "bg-yellow-500 text-black",
+                "bg-yellow-500 text-neutral-900 dark:bg-yellow-600",
             variant === "danger" &&
-                "bg-red-500 text-white",
+                "bg-red-600 text-white dark:bg-red-700",
             className            
           )}
           >

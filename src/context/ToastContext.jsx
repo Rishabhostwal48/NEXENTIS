@@ -44,16 +44,16 @@ function ToastContainer({ toasts }) {
 
 function Toast({ message, type }) {
   const styles = {
-    success: "bg-green-600",
-    error: "bg-red-600",
-    info: "bg-gray-800",
+    success: "bg-green-600 dark:bg-green-700",
+    error: "bg-red-600 dark:bg-red-700",
+    info: "bg-neutral-900 dark:bg-neutral-800",
   };
 
   return (
     <div
         role="status"
         aria-live="polite"
-      className={`px-4 py-3 rounded-md text-white shadow-lg animate-slide-in ${styles[type]}`}
+      className={`px-4 py-3 rounded-lg text-white shadow-lg animate-slide-in ${styles[type]}`}
     >
         {message}
     </div>

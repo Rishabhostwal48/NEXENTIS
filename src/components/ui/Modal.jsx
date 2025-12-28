@@ -34,7 +34,7 @@ export default function Modal({ open, onClose, title, children, size = "md" }) {
         role="dialog"
         aria-modal="true"
         className={clsx(
-          "relative z-10 w-full rounded-xl bg-white dark:bg-gray-800 shadow-lg animate-modal",
+          "relative z-10 w-full rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-xl animate-modal",
           size === "sm" && "max-w-sm",
           size === "md" && "max-w-lg",
           size === "lg" && "max-w-2xl"
@@ -42,11 +42,12 @@ export default function Modal({ open, onClose, title, children, size = "md" }) {
       >
         {/* Header */}
         {title && (
-            <div className="flex items-center justify-between border-b px-6 py-4 dark:border-gray-700">
-                <h2 className="text-lg font-semibold">{title}</h2>
+            <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 px-6 py-4">
+                <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">{title}</h2>
                 <button 
                   onClick={onClose}
-                  className="rounded p-1 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="rounded-md p-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors"
+                  aria-label="Close modal"
                 >
                     <X size={18} />
                 </button>

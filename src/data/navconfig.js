@@ -1,4 +1,4 @@
-import { Home, SquareGanttChart, Layers, GalleryVerticalEnd, Github, BookOpenText, Book, Monitor, Tag, Star, CreditCard } from "lucide-react";
+import { Home, SquareGanttChart, Layers, GalleryVerticalEnd, Github, BookOpenText, Book, Monitor, Tag, Star, CreditCard, Computer, Bell, Box, PanelsTopLeftIcon } from "lucide-react";
 
 
 export const navLinks = [
@@ -24,17 +24,21 @@ export const sidebarLinks = [
     collapsed: true,
     items:[
         {label:"Buttons", path:"/docs/buttons" , icon : SquareGanttChart},
-        {label:"Accordion", path:"/docs/accodion",icon : Layers},
         {label:"Cards",path: "/docs/cards", icon : GalleryVerticalEnd },
-        {label: "Badge" , path :"/docs/badges" , icon : Tag},
-        {label: "Modal" , path :"/docs/modal" ,  },
+        {label: "Badges" , path :"/docs/badges" , icon : Tag},
+        {label: "Modals" , path :"/docs/modal" , icon:Monitor   },
+        {label: "Toast" , path :"/docs/toast" , icon:Bell   },
+        {label:"Accordion", path:"/docs/accodion",icon : Layers},
+        {label:"3D Card", path:"/docs/card-3d",icon : Box},
+        {label:"Textured Backgroun", path:"/docs/textured-background",icon : PanelsTopLeftIcon},
+        {label:"Scroll Reveal", path:"/docs/scroll-reveal",icon : PanelsTopLeftIcon},
     ],
   },
   {
     group: "Blocks",
     collapsed: true,
     items: [
-      { label:"Hero", path:"/docs/hero", icon:Monitor},
+      { label:"Hero", path:"/docs/hero", icon:Computer},
       { label: "Pricing", path: "/docs/pricing", icon:CreditCard},
     ],
   },

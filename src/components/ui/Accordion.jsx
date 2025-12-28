@@ -18,7 +18,7 @@ export function Accordion({ items, multiple = false }) {
   }
 
   return (
-    <div className="w-full divide-y rounded-md border">
+    <div className="w-full divide-y divide-neutral-200 dark:divide-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden">
       {items.map((item, index) => {
         const isOpen = multiple
           ? openIndex.includes(index)
@@ -55,12 +55,12 @@ function AccordionItem({ title, isOpen, onClick, children }) {
     <div className="overflow-hidden">
       <button
        onClick={onClick}
-       className="flex w-full items-center justify-between px-4 py-3 font-medium hover:bg-gray-50"
+       className="flex w-full items-center justify-between px-4 py-3 font-medium text-neutral-900 dark:text-neutral-50 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
       >
         {title}
         <ChevronDown
          className={clsx(
-          "h-4 w-4 transition-transform duration-300",
+          "h-4 w-4 text-neutral-500 dark:text-neutral-400 transition-transform duration-normal",
           isOpen && "rotate-180"
          )}
         />
@@ -68,9 +68,9 @@ function AccordionItem({ title, isOpen, onClick, children }) {
 
       <div
         style={{ height }}
-        className="transition-all duration-300 ease-in-out"
+        className="transition-all duration-normal"
       >
-        <div ref={ref} className="px-4 pb-4 text-sm text-gray-600">
+        <div ref={ref} className="px-4 pb-4 text-sm text-neutral-600 dark:text-neutral-400">
           {children}
         </div>
       </div>

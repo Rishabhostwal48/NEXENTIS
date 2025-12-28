@@ -24,7 +24,7 @@ export default function ModalDoc(){
             <Button onClick={() => setOpen(true)}>Open Modal</Button>
 
             <Modal open={open} onClose={()=> setOpen(false)} title="Example Modal">
-                <p className="mb-4 text-gray-600 dark:text-gray-300">
+                <p className="mb-4 text-neutral-600 dark:text-neutral-400">
                     This is a reusable modal component.
                 </p>
                 <Button onClick={() => setOpen(false)}>Close</Button>

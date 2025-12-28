@@ -15,12 +15,17 @@ import ErrorBoundary from "./components/system/ErrorBoundary";
 import ProtectedRoute from "./components/system/ProtectedRote";
 import Login from "./pages/Login";
 import PricingDoc from "./components/docs/PricingDoc";
+import TexturedBackgroundDoc from "./components/docs/TexturedBackgroundDoc";
+import ScrollRevealDoc from "./components/docs/ScrollRevealDoc";
+import Card3DDoc from "./components/docs/Card3DDoc";
+import Footer from "./components/layout/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 flex flex-col">
       <Navbar />
-      <Routes>
+      <main className="flex-1">
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/components" element={<Components />} />
         <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
@@ -35,7 +40,12 @@ export default function App() {
         <Route path="/docs/toast" element={<ToastDoc />} />
         <Route path="/docs/modal" element={<ModalDoc />} />
         <Route path="/docs/pricing" element={<PricingDoc />} />
-      </Routes>
+        <Route path="/docs/textured-background" element={<TexturedBackgroundDoc />} />
+        <Route path="/docs/scroll-reveal" element={<ScrollRevealDoc />} />
+        <Route path="/docs/card-3d" element={<Card3DDoc />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 }
