@@ -12,6 +12,7 @@ export default function Login(){
         e.preventDefault()
         setIsSubmitting(true)
         login(email)
+        Navigate("/")
         setTimeout(() => setIsSubmitting(false), 500)
     }
 
@@ -46,14 +47,14 @@ export default function Login(){
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
                                     className="w-full rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-10 py-3 text-base placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-50 focus:border-transparent transition-all"
-                                    disabled={isSubmitting}
+                                    // disabled={isSubmitting}
                                 />
                             </div>
                         </div>
 
                         <Button 
                             className="w-full" 
-                            disabled={isSubmitting}
+                            // disabled={isSubmitting}
                         >
                             {isSubmitting ? "Signing in..." : "Sign in"}
                         </Button>

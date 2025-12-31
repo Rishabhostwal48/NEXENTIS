@@ -10,7 +10,6 @@ import BadgeDoc from "./components/docs/BadgeDoc";
 import Favorites from "./pages/Favorites";
 import ToastDoc from "./components/docs/ToastDoc";
 import ModalDoc from "./components/docs/ModalDoc";
-import ErrorBoundary from "./components/system/ErrorBoundary";
 import ProtectedRoute from "./components/system/ProtectedRote";
 import Login from "./pages/Login";
 import PricingDoc from "./components/docs/PricingDoc";
