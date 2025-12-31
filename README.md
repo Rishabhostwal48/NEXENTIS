@@ -1,4 +1,4 @@
-# UI Component Lab
+# NEXENNTIS - UI Component Lab
 
 A production-ready React + Tailwind UI component library.
 
