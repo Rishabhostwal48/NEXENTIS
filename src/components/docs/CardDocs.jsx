@@ -18,6 +18,7 @@ export default function CardsDoc() {
       title="Cards"
       description="Flexible card layout component."
       code={codeExample}
+      playgroundId="card"
     >
       <div className="grid grid-cols-2 gap-6">
         <Card>

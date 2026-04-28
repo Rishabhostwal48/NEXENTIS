@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {  Menu, SearchIcon,  X } from "lucide-react";
+import {  Menu, SearchIcon,  X, Command } from "lucide-react";
 import { navLinks } from "../../data/navconfig";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
 import { Authcontext } from "../../context/AuthContext";
 import Button from "../ui/Button";
+import { useCommandPalette } from "../../context/CommandPaletteContext";
 
 
 export default function Navbar() {
@@ -13,45 +14,76 @@ export default function Navbar() {
   const location = useLocation();
   const {user, logout} = useContext(Authcontext)
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { openPalette } = useCommandPalette();
 
   return (
-    <nav className="w-full border-b border-neutral-200 bg-white dark:bg-neutral-900 dark:border-neutral-800 sticky top-0 z-50 backdrop-blur-sm bg-white/95 dark:bg-neutral-900/95">
+    <nav className="w-full sticky top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-neutral-950/40 border-b border-neutral-200/70 dark:border-neutral-800/70">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-neutral-900 dark:text-neutral-50 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors">
-          Nexentis
+          <span className="bg-brand-gradient bg-clip-text text-transparent">Nexentis</span>
         </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-1 text-sm font-medium">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path));
+            const isExternal = typeof link.path === "string" && link.path.startsWith("http");
             return (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-normal hover-underline ${
-                  isActive
-                    ? "font-semibold text-neutral-900 dark:text-neutral-50 bg-neutral-100 dark:bg-neutral-800"
-                    : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
-                }`}
-              >
-                <link.icon size={18} />
-                {link.label}
-              </Link>
+              isExternal ? (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-normal hover-underline text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                >
+                  <link.icon size={18} />
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-normal hover-underline ${
+                    isActive
+                      ? "font-semibold text-neutral-900 dark:text-neutral-50 bg-brand-500/10"
+                      : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                  }`}
+                >
+                  <link.icon size={18} />
+                  {link.label}
+                </Link>
+              )
             );
           })}
         </div>
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
-          {/* Search */}
-          <Link 
-            to="/search" 
-            className="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors"
+          {/* Command Palette */}
+          <button
+            type="button"
+            onClick={openPalette}
+            className="hidden md:flex items-center gap-2 rounded-md px-3 py-2 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
+            aria-label="Open command palette"
+          >
+            <Command size={16} />
+            <span className="hidden lg:inline">Search</span>
+            <span className="ml-2 inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-500">
+              <kbd className="px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/50">Ctrl</kbd>
+              <span>+</span>
+              <kbd className="px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/50">K</kbd>
+            </span>
+          </button>
+
+          {/* Search (mobile quick access) */}
+          <Link
+            to="/search"
+            className="md:hidden p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors"
             aria-label="Search"
           >
-            <SearchIcon size={18}/>
+            <SearchIcon size={18} />
           </Link>
 
           {/* Theme Toggle */}
@@ -91,20 +123,35 @@ export default function Navbar() {
           <div className="px-6 py-4 space-y-1">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path));
+              const isExternal = typeof link.path === "string" && link.path.startsWith("http");
               return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-md transition-all duration-normal ${
-                    isActive
-                      ? "font-semibold text-neutral-900 dark:text-neutral-50 bg-neutral-100 dark:bg-neutral-800"
-                      : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
-                  }`}
-                >
-                  <link.icon size={18} />
-                  {link.label}
-                </Link>
+                isExternal ? (
+                  <a
+                    key={link.path}
+                    href={link.path}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="flex items-center gap-3 px-4 py-3 rounded-md transition-all duration-normal text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <link.icon size={18} />
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-md transition-all duration-normal ${
+                      isActive
+                        ? "font-semibold text-neutral-900 dark:text-neutral-50 bg-brand-500/10"
+                        : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                    }`}
+                  >
+                    <link.icon size={18} />
+                    {link.label}
+                  </Link>
+                )
               );
             })}
           </div>

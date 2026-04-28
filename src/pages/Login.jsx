@@ -1,18 +1,20 @@
 import { useContext, useState } from "react";
 import { Authcontext } from "../context/AuthContext";
 import Button from "../components/ui/Button";
-import { Mail, Lock } from "lucide-react";
+import { Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(){
     const{login} = useContext(Authcontext)
     const[email, setEmail] = useState("")
     const[isSubmitting, setIsSubmitting] = useState(false)
+    const navigate = useNavigate()
 
     function handleSubmit(e){
         e.preventDefault()
         setIsSubmitting(true)
         login(email)
-        Navigate("/")
+        navigate("/")
         setTimeout(() => setIsSubmitting(false), 500)
     }
 

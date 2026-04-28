@@ -20,7 +20,7 @@ export default function Badge({
             variant === "secondary" &&
                 "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200",
             variant === "primary" &&
-               "bg-neutral-900 text-white dark:bg-neutral-50 dark:text-neutral-900",
+               "bg-brand-gradient text-white",
             variant === "success" &&
                 "bg-green-600 text-white dark:bg-green-700",
             variant === "warning" &&

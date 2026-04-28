@@ -12,8 +12,12 @@ export default function Hero({
 }) {
     return (
         <section className="py-24 md:py-32 px-6 relative">
-            {/* Radial Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 dark:from-blue-400/10 dark:via-transparent dark:to-purple-400/10 pointer-events-none"></div>
+            {/* Soft brand glow backdrop */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-brand-500/20 blur-[90px]" />
+              <div className="absolute top-24 right-[-120px] h-[320px] w-[320px] rounded-full bg-accent-500/15 blur-[80px]" />
+              <div className="absolute inset-0 bg-brand-gradient-soft opacity-60" />
+            </div>
             
             <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative">
                 {/* Text */}
@@ -24,8 +28,8 @@ export default function Hero({
                         <Badge variant="secondary" className="text-xs">React + Tailwind</Badge>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-neutral-900 dark:text-neutral-50 tracking-tight">
-                        {title}
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.06] text-neutral-900 dark:text-neutral-50 tracking-tight">
+                        <span className="text-balance">{title}</span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg">

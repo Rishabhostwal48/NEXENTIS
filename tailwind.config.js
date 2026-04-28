@@ -8,6 +8,32 @@ export default {
   theme: { 
     extend: {
       colors: {
+        brand: {
+          50: "#eef2ff",
+          100: "#e0e7ff",
+          200: "#c7d2fe",
+          300: "#a5b4fc",
+          400: "#818cf8",
+          500: "#6366f1",
+          600: "#4f46e5",
+          700: "#4338ca",
+          800: "#3730a3",
+          900: "#312e81",
+          950: "#1e1b4b",
+        },
+        accent: {
+          50: "#ecfeff",
+          100: "#cffafe",
+          200: "#a5f3fc",
+          300: "#67e8f9",
+          400: "#22d3ee",
+          500: "#06b6d4",
+          600: "#0891b2",
+          700: "#0e7490",
+          800: "#155e75",
+          900: "#164e63",
+          950: "#083344",
+        },
         primary: {
           50: '#f9fafb',
           100: '#f3f4f6',
@@ -35,6 +61,11 @@ export default {
           950: '#0a0a0a',
         },
       },
+      backgroundImage: {
+        "brand-gradient": "linear-gradient(135deg, theme(colors.brand.500), theme(colors.accent.500))",
+        "brand-gradient-soft": "linear-gradient(135deg, color-mix(in oklab, theme(colors.brand.500) 22%, transparent), color-mix(in oklab, theme(colors.accent.500) 18%, transparent))",
+        "glow-radial": "radial-gradient(60% 60% at 50% 20%, color-mix(in oklab, theme(colors.brand.500) 20%, transparent), transparent 60%)",
+      },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
         sm: ['0.875rem', { lineHeight: '1.25rem' }],
@@ -60,6 +91,10 @@ export default {
         'md': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
         'lg': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
         'xl': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+        // Premium, softer shadows (good on glass + dark mode)
+        'soft-sm': '0 1px 1px rgb(0 0 0 / 0.04), 0 2px 8px rgb(0 0 0 / 0.06)',
+        'soft-md': '0 6px 20px rgb(0 0 0 / 0.08), 0 1px 1px rgb(0 0 0 / 0.04)',
+        'soft-lg': '0 16px 48px rgb(0 0 0 / 0.12), 0 2px 6px rgb(0 0 0 / 0.06)',
       },
       borderRadius: {
         'xs': '0.125rem',
@@ -74,11 +109,26 @@ export default {
         'fast': '150ms',
         'normal': '200ms',
         'slow': '300ms',
+        'slower': '450ms',
       },
       transitionTimingFunction: {
         'ease-in-out-cubic': 'cubic-bezier(0.4, 0, 0.2, 1)',
         'ease-out-cubic': 'cubic-bezier(0, 0, 0.2, 1)',
         'ease-in-cubic': 'cubic-bezier(0.4, 0, 1, 1)',
+      },
+      keyframes: {
+        "page-in": {
+          "0%": { opacity: "0", transform: "translateY(6px)" },
+          "100%": { opacity: "1", transform: "translateY(0px)" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.98)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+      },
+      animation: {
+        "page-in": "page-in 300ms cubic-bezier(0, 0, 0.2, 1) both",
+        "scale-in": "scale-in 200ms cubic-bezier(0, 0, 0.2, 1) both",
       },
       perspective: {
         '1000': '1000px',

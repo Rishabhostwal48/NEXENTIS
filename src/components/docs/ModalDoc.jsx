@@ -20,6 +20,7 @@ export default function ModalDoc(){
            title="Modal"
            description="Dialog component for confirmations, froms and alerts."
            code={codeExample}
+           playgroundId="modal"
         >
             <Button onClick={() => setOpen(true)}>Open Modal</Button>
 

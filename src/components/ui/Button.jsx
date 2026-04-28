@@ -14,17 +14,18 @@ export default function Button({
       aria-label={typeof children === "string" ? children : "button"}
       disabled={disabled}
       className={clsx(
-        "inline-flex items-center justify-center rounded-md font-medium transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
+        "pressable inline-flex items-center justify-center rounded-md font-medium transition-all duration-normal ease-ease-out-cubic focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
 
         //Variants
         {
-          "bg-neutral-900 text-white hover:bg-neutral-800 active:bg-neutral-950 focus:ring-neutral-900 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-200 dark:active:bg-neutral-300 dark:focus:ring-neutral-50":
+          // Premium brand gradient with subtle sheen
+          "relative overflow-hidden bg-brand-gradient text-white shadow-soft-sm hover:shadow-soft-md hover:-translate-y-0.5 active:translate-y-0 focus:ring-brand-500 dark:focus:ring-brand-400":
             variant === "primary",
 
-          "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 active:bg-neutral-300 focus:ring-neutral-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-700 dark:active:bg-neutral-600":
+          "glass glass-hover text-neutral-900 dark:text-neutral-50 hover:-translate-y-0.5 active:translate-y-0 focus:ring-brand-500":
             variant === "secondary",
 
-          "border border-neutral-300 dark:border-neutral-700 bg-transparent text-neutral-900 dark:text-neutral-50 hover:bg-neutral-50 dark:hover:bg-neutral-800 active:bg-neutral-100 dark:active:bg-neutral-700 focus:ring-neutral-900 dark:focus:ring-neutral-50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all":
+          "gradient-border bg-transparent text-neutral-900 dark:text-neutral-50 hover:bg-neutral-50/70 dark:hover:bg-neutral-900/40 active:bg-neutral-100/70 dark:active:bg-neutral-900/60 focus:ring-brand-500 shadow-soft-sm hover:shadow-soft-md hover:-translate-y-0.5 active:translate-y-0":
             variant === "outline",
         },
 

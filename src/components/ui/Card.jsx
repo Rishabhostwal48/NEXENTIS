@@ -3,7 +3,7 @@ import Surface from "./Surface"
 export function Card({ children, className = "" }){
     return(
         <Surface
-           className={`shadow-sm dark:shadow-md p-6 rounded-lg ${className}`}
+           className={`shadow-soft-sm dark:shadow-soft-md p-6 rounded-lg ${className}`}
         >
             {children}
         </Surface>

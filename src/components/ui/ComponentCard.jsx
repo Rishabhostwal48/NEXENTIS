@@ -6,8 +6,6 @@ import Button from "./Button";
 import { Accordion } from "./Accordion";
 import TexturedBackground from "./TexturedBackground";
 import Card3D from "./Card3D";
-import { useState } from "react";
-import Modal from "./Modal";
 import { Bell } from "lucide-react";
 
 /**

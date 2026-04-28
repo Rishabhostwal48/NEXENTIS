@@ -17,29 +17,42 @@ import TexturedBackgroundDoc from "./components/docs/TexturedBackgroundDoc";
 import ScrollRevealDoc from "./components/docs/ScrollRevealDoc";
 import Card3DDoc from "./components/docs/Card3DDoc";
 import Footer from "./components/layout/Footer";
+import DataTableDoc from "./components/docs/DataTableDoc";
+import CommandPalette from "./components/system/CommandPalette";
+import PageTransition from "./components/system/PageTransition";
+import Templates from "./pages/Templates";
+import Playground from "./pages/Playground";
+import AccordionDoc from "./components/docs/AccordionDoc";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 flex flex-col">
       <Navbar />
+      <CommandPalette />
       <main className="flex-1">
-        <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/components" element={<Components />} />
-        <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/login" element={<Login />}/>
-        <Route path="/docs/buttons" element={<ButtonDoc />} />
-        <Route path="/docs/cards" element={<CardsDoc />} />
-        <Route path="/docs/hero" element={<HeroDoc />} />
-        <Route path="/docs/badges" element={<BadgeDoc />} />
-        <Route path="/docs/toast" element={<ToastDoc />} />
-        <Route path="/docs/modal" element={<ModalDoc />} />
-        <Route path="/docs/pricing" element={<PricingDoc />} />
-        <Route path="/docs/textured-background" element={<TexturedBackgroundDoc />} />
-        <Route path="/docs/scroll-reveal" element={<ScrollRevealDoc />} />
-        <Route path="/docs/card-3d" element={<Card3DDoc />} />
-        </Routes>
+        <PageTransition>
+          <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/components" element={<Components />} />
+          <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/templates" element={<Templates />} />
+          <Route path="/playground" element={<Playground />} />
+          <Route path="/login" element={<Login />}/>
+          <Route path="/docs/buttons" element={<ButtonDoc />} />
+          <Route path="/docs/cards" element={<CardsDoc />} />
+          <Route path="/docs/hero" element={<HeroDoc />} />
+          <Route path="/docs/badges" element={<BadgeDoc />} />
+          <Route path="/docs/toast" element={<ToastDoc />} />
+          <Route path="/docs/modal" element={<ModalDoc />} />
+          <Route path="/docs/pricing" element={<PricingDoc />} />
+          <Route path="/docs/textured-background" element={<TexturedBackgroundDoc />} />
+          <Route path="/docs/scroll-reveal" element={<ScrollRevealDoc />} />
+          <Route path="/docs/card-3d" element={<Card3DDoc />} />
+          <Route path="/docs/table" element={<DataTableDoc />} />
+          <Route path="/docs/accordion" element={<AccordionDoc />} />
+          </Routes>
+        </PageTransition>
       </main>
       <Footer />
     </div>

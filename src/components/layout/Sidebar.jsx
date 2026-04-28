@@ -20,14 +20,14 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen border-r border-neutral-200 bg-white dark:bg-neutral-900 dark:border-neutral-800 transition-all duration-normal sticky top-0
+      className={`h-screen border-r border-neutral-200/70 dark:border-neutral-800/70 bg-white/70 dark:bg-neutral-950/40 backdrop-blur-xl transition-all duration-normal sticky top-0
         ${collapsed ? "w-16" : "w-64"}`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-800">
+      <div className="flex items-center justify-between p-4 border-b border-neutral-200/70 dark:border-neutral-800/70">
         {!collapsed && (
           <span className="font-semibold text-neutral-900 dark:text-neutral-50 text-lg">
-            Nexentis
+            <span className="bg-brand-gradient bg-clip-text text-transparent">Nexentis</span>
           </span>
         )}
         <button 
@@ -71,7 +71,7 @@ export default function Sidebar() {
                         flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-all duration-normal
                         ${
                           isActive
-                            ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 font-medium"
+                            ? "bg-brand-500/10 text-neutral-900 dark:text-neutral-50 font-medium"
                             : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:text-neutral-900 dark:hover:text-neutral-200"
                         }
                       `}

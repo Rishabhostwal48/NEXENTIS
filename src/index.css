@@ -11,6 +11,15 @@
   body {
     @apply antialiased;
   }
+
+  /* App-level motion defaults */
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
   
   * {
     @apply border-neutral-200 dark:border-neutral-800;
@@ -24,6 +33,37 @@
   /* Selection colors */
   ::selection {
     @apply bg-primary-100 text-primary-900 dark:bg-primary-900 dark:text-primary-100;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 dark:bg-neutral-950/40 backdrop-blur-xl border border-white/20 dark:border-neutral-800/70 shadow-soft-sm;
+  }
+
+  .glass-hover {
+    @apply hover:bg-white/80 dark:hover:bg-neutral-950/50;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, theme('colors.brand.500') 55%, transparent),
+      color-mix(in oklab, theme('colors.accent.500') 45%, transparent)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 }
 

@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { FavoritesProvider } from './context/FavoritesContext'
 import { ToastProvider } from './context/ToastContext'
 import { AuthProvider } from './context/AuthContext'
+import { CommandPaletteProvider } from './context/CommandPaletteContext'
 
 ReactDom.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDom.createRoot(document.getElementById('root')).render(
         <AuthProvider>
         <FavoritesProvider>
           <ToastProvider>
-            <App />
+            <CommandPaletteProvider>
+              <App />
+            </CommandPaletteProvider>
           </ToastProvider>
         </FavoritesProvider>
         </AuthProvider>

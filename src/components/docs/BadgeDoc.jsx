@@ -17,6 +17,7 @@ export default function BadgeDoc() {
       title="Badges"
       description="Small status labels with variants and size options."
       code={codeExample}
+      playgroundId="badge"
     >
       <div className="flex flex-wrap gap-3">
         <Badge>Gray</Badge>

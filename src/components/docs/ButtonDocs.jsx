@@ -14,6 +14,7 @@ export default function ButtonDocs(){
             title="Buttons"
             description="Reusable button component with variants and sizes."
             code={codeExample}
+            playgroundId="button"
             >
                 <div className="flex gap-3">
                     <Button>Primary</Button>
