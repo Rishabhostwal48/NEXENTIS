@@ -4,7 +4,7 @@ import { Home, SquareGanttChart, Layers, GalleryVerticalEnd, Github, Book, Monit
 export const navLinks = [
   { label: "Home", path: "/", icon: Home  },
   { label: "Components", path: "/components", icon: SquareGanttChart  },  
-  { label: "Docs", path: "/docs/buttons", icon: Book },
+  // { label: "Docs", path: "/docs/buttons", icon: Book },
   { label: "Templates", path: "/templates", icon: LayoutTemplate },
   { label: "Playground", path: "/playground", icon: Wand2 },
   { label: "Github", path: "https://github.com/Rishabhostwal48/UI-Component-Library", icon : Github },
@@ -13,19 +13,19 @@ export const navLinks = [
 ];
 
 export const sidebarLinks = [
-  {
-    group: "Getting Started",
-    collapsed:false,
-    items: [
-      { label: "Home", path: "/" , icon: Home  },
-      { label: "Templates", path: "/templates", icon: LayoutTemplate },
-      { label: "Playground", path: "/playground", icon: Wand2 },
-      {label: "Favorites", path:"/favorites",icon:Star}
-    ],
-  },
+  // {
+  //   group: "Getting Started",
+  //   collapsed:false,
+  //   items: [
+  //     { label: "Home", path: "/" , icon: Home  },
+  //     { label: "Templates", path: "/templates", icon: LayoutTemplate },
+  //     { label: "Playground", path: "/playground", icon: Wand2 },
+  //     {label: "Favorites", path:"/favorites",icon:Star}
+  //   ],
+  // },
   {
     group:"UI Components",
-    collapsed: true,
+    collapsed: false,
     items:[
         {label:"Buttons", path:"/docs/buttons" , icon : SquareGanttChart},
         {label:"Cards",path: "/docs/cards", icon : GalleryVerticalEnd },
@@ -41,7 +41,7 @@ export const sidebarLinks = [
   },
   {
     group: "Blocks",
-    collapsed: true,
+    collapsed: false,
     items: [
       { label:"Hero", path:"/docs/hero", icon:Computer},
       { label: "Pricing", path: "/docs/pricing", icon:CreditCard},

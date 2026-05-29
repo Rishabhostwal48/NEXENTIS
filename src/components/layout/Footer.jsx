@@ -88,7 +88,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/Rishbahostwl48/Nexentis"
+                  href="https://github.com/Rishabhostwal48/Nexentis"
                   className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors"
                 >
                   Contributing
